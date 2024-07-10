@@ -26,6 +26,7 @@ async function isCiEnvironment(): Promise<boolean> {
       !!process.env.CIRCLECI ||
       !!process.env.GITHUB_ACTIONS ||
       !!process.env.JENKINS_HOME ||
-      !!process.env.GITLAB_CI
+      !!process.env.GITLAB_CI||
+      !!process.env.TF_BUILD
     );
   }
