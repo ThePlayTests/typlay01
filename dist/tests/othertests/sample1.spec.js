@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const test_1 = require("playwright/test");
+const helpers_1 = require("../testhelpers/helpers");
+const { firefox, chromium } = require('playwright');
+(0, test_1.test)('Google search Test1', async () => {
+    const browser = await chromium.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto("https://www.google.com/");
+    await page.locator("[name=q]").fill("playground");
+    // await sleep(500);
+    // await page.click("Escape");
+    // await sleep(500);
+    await page.locator("[name=q]").press("Enter");
+    await (0, helpers_1.sleep)(1000);
+    await page.goBack();
+    await page.locator("[name=q]").clear();
+});
+(0, test_1.test)('Google search Test2', async () => {
+    const browser = await chromium.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto("https://www.google.com/");
+    await page.locator("[name=q]").fill("playwright playground");
+    // await sleep(500);
+    // await page.click("Escape");
+    // await sleep(500);
+    await page.locator("[name=q]").press("Enter");
+    await (0, helpers_1.sleep)(2000);
+    await page.goBack();
+    await page.locator("[name=q]").clear();
+});

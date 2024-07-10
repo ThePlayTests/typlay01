@@ -1,0 +1,5 @@
+[
+    { "username": "user1", "password": "pass1", "expected":"Welcome user1" },
+    { "username": "user2", "password": "pass2", "expected":"Welcome user2" },
+    { "username": "user3", "password": "pass2", "expected":"Welcome user3" }
+]
