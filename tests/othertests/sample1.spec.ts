@@ -33,3 +33,18 @@ const {firefox,chromium} = require('playwright');
         
     });
 
+
+test('Google search Test3',async ({},testInfo) => {
+    const browser: Browser = await chromium.launch({headless:true});
+    const page: Page = await browser.newPage();
+    await page.goto("https://www.google.com/");
+    await page.locator("[name=q]").fill("cucumber playwright");
+
+    await testInfo.attach('screenshot', { body: await page.screenshot(), contentType: 'image/png' });
+    await page.locator("[name=q]").press("Enter");
+    await sleep(1000);
+    var screenshot = await page.screenshot();
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+
+});
+
