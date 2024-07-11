@@ -24,6 +24,8 @@ const {firefox,chromium} = require('playwright');
         const page: Page = await browser.newPage();
         await page.goto("https://www.google.com/");
         await page.locator("[name=q]").fill("playwright playground");
+
+        await testInfo.attach('screenshot', { body: await page.screenshot(), contentType: 'image/png' });
         await page.locator("[name=q]").press("Enter");
         await sleep(1000);
         var screenshot = await page.screenshot();
