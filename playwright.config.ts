@@ -21,11 +21,11 @@ export default defineConfig({
 
   workers: process.env.CI ? 1 : undefined,
 
-  reporter: [['html',{ outputFolder: 'reports/playwright-html' }],
+  reporter: [['html',{ outputFolder: 'playwright-html' }],
              ["allure-playwright", 
                 {
                   detail: true,
-                  outputDir:"reports/allure-results",
+                  outputDir:"allure-results",
                   // outputFolder: "reports/allure-results",
                   suiteTitle: false,
                   categories: [{
